@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Kylincommander.github.io.git">
-  <title>Archives | Hexo</title>
+  <title>Note for &#39;The Missing Semester of Your CS Education(2020)&#39; of MIT | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://kylincommander.github.io.git/archives/index.html">
+  <meta name="description" content="This is the note that i took for the Class of the MIT : The Missing Semester of Your CS Education(2020).https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1x7411H7wa&#x2F;?p&#x3D;1  1.ShellWhitespace seperates the arguments,  if">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Note for &#39;The Missing Semester of Your CS Education(2020)&#39; of MIT">
+<meta property="og:url" content="https://kylincommander.github.io.git/2020/08/23/Note-for-The-Missing-Semester-of-Your-CS-Education-2020-of-MIT/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="This is the note that i took for the Class of the MIT : The Missing Semester of Your CS Education(2020).https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1x7411H7wa&#x2F;?p&#x3D;1  1.ShellWhitespace seperates the arguments,  if">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-08-23T08:33:31.000Z">
+<meta property="article:modified_time" content="2020-08-23T08:34:21.916Z">
 <meta property="article:author" content="Gong Feiyang">
 <meta name="twitter:card" content="summary">
   
@@ -150,76 +154,548 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Note-for-The-Missing-Semester-of-Your-CS-Education-2020-of-MIT" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Note for &#39;The Missing Semester of Your CS Education(2020)&#39; of MIT
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/23/Note-for-The-Missing-Semester-of-Your-CS-Education-2020-of-MIT/" class="archive-article-date">
+
+        
+        <a href="/2020/08/23/Note-for-The-Missing-Semester-of-Your-CS-Education-2020-of-MIT/" class="archive-article-date">
   	<time datetime="2020-08-23T08:33:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-23</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/23/Note-for-The-Missing-Semester-of-Your-CS-Education-2020-of-MIT/">Note for &#39;The Missing Semester of Your CS Education(2020)&#39; of MIT</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This is the note that i took for the Class of the MIT : The Missing Semester of Your CS Education(2020).<br><a href="https://www.bilibili.com/video/BV1x7411H7wa/?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1x7411H7wa/?p=1</a></p>
+<hr>
+<h1 id="1-Shell"><a href="#1-Shell" class="headerlink" title="1.Shell"></a>1.Shell</h1><p>Whitespace seperates the arguments,  if I need an argument as multiple words:<br>1.Quote those words;<br>2.Use ‘’\‘’+Whitespace as space in this argument;</p>
+<h2 id="Path-amp-Some-relative-handy-commands"><a href="#Path-amp-Some-relative-handy-commands" class="headerlink" title="Path &amp; Some relative handy commands"></a>Path &amp; Some relative handy commands</h2><p>Veriable <code>$PATH</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>​    This shows all the paths on my machine that the shell will search for programs of files whose name matches the command which i tried to run.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> <span class="built_in">echo</span></span><br></pre></td></tr></table></figure>
 
+<p><code>which</code> command tells me that if I were to run a program called echo, I would run that one in the directory it shows. </p>
+<p>​    Paths are the way to name the location on your computer.On Linux and MacOS these paths are separated by ‘/‘ (forward slash) , while on Windows paths are seperated by ‘\‘ (back slash) instead.</p>
+<ul>
+<li><p><strong>Absolute path</strong></p>
+<p>On Linux and MacOS, everything lives under the root namespace, so all absolute paths start with a slash.</p>
+<p>On Windows there is one root for every partition,  <code>C:\</code>、<code>D:\</code>.</p>
+</li>
+<li><p><strong>Relative path</strong></p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">pwd</span></span><br></pre></td></tr></table></figure>
+
+<p>​    Print working directory. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /home</span><br></pre></td></tr></table></figure>
+
+<p>​    Change Directory.  <code>.</code> means current directory, <code>..</code> means the parent directory,<code>~</code> means the home directory. <code>-</code> means the directory you previously in.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+
+<p>​    List all files and ditectories(in the directory which i typed in, default is the current directory).</p>
+<p>​    Most programs take what are known as arguments like flags and options. These are things that usually start with a <code>-</code>. One of the most handy ones is <code>--help</code>, most programs implement this . This shows how to use this program and all the other flags and options of this program.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l</span><br></pre></td></tr></table></figure>
+
+<p>​    result example:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">total 0</span><br><span class="line">drwx------+  6 gongfeiyang  staff   192 Aug 15 10:07 Desktop</span><br><span class="line">drwx------@  7 gongfeiyang  staff   224 Aug 15 10:33 Documents</span><br><span class="line">drwx------@ 38 gongfeiyang  staff  1216 Aug 15 10:34 Downloads</span><br><span class="line">drwx------@ 75 gongfeiyang  staff  2400 Aug  8 14:51 Library</span><br><span class="line">drwx------+  6 gongfeiyang  staff   192 May 31 14:27 Movies</span><br><span class="line">drwx------+  5 gongfeiyang  staff   160 May 27 11:48 Music</span><br><span class="line">drwxr-xr-x   3 gongfeiyang  staff    96 Jun  9 08:58 Myblog</span><br><span class="line">drwx------@ 18 gongfeiyang  staff   576 Aug 10 16:16 OneDrive</span><br><span class="line">drwx------+  5 gongfeiyang  staff   160 May 28 07:07 Pictures</span><br><span class="line">drwxr-xr-x   8 gongfeiyang  staff   256 Jul 27 17:53 Programming</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>d</code> indicates that something is a directory. <code>l</code>indicates that something is a link file,<code>-</code> indicates that it is a normal file;</li>
+<li>The following 9 letters after that indicate the permissions that are set for that file:<ul>
+<li>r (Read)</li>
+<li>w (Wirte)</li>
+<li>x (eXecute)<br>The first there of those indicates the permissions of the owner of this file. The next three indicated the permission of the group of this file. Last three indicates other’s permission.  </li>
+</ul>
+</li>
+<li>The following number means the number of the hard links</li>
+<li><code>gongfeiyang</code> is the owner of this file, <code>staff</code> is the group of the owner.</li>
+<li>The following number indicates the size(Bytes) of the file.</li>
+</ol>
+<h4 id="Other-handy-commands"><a href="#Other-handy-commands" class="headerlink" title="Other handy commands"></a>Other handy commands</h4><p><code>mv</code>,<code>cp</code>,<code>mkdir</code></p>
+<h2 id="Streams"><a href="#Streams" class="headerlink" title="Streams"></a>Streams</h2><p>​    Every program by default has two primary streams: input stream and output stream. By default, the input stream and output stream are terminal.</p>
+<p>​    Shell gives a way to rewire these streams to change where the input and output of a program pointed.</p>
+<p>The most straightforward way to do this is using <code>&lt;</code> (rewire the input to this file) and <code>&gt;</code> (rewire the output to this file) ,<code>&gt;&gt;</code> (append to):</p>
+<p>Eg:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> hello &gt; hello.txt</span><br><span class="line">cat &lt; hello.txt &gt; hello2.txt</span><br><span class="line">cat &lt; hello.txt &gt;&gt; hello2.txt</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>Pipe character :<code>|</code></strong></p>
+<p>Take the output of the program to the left and make the input of the program to the right.</p>
+<p>eg:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l / | tail -n1</span><br></pre></td></tr></table></figure>
+
+<p>I want the output of <code>ls</code> to be the input of the <code>tail</code>.</p>
+</li>
+</ul>
+<h2 id="Root-User"><a href="#Root-User" class="headerlink" title="Root User"></a><strong>Root User</strong></h2><p>Root user can do whatever he want to the computer, sort of like a super user.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo</span><br></pre></td></tr></table></figure>
+
+<p>​    Do as super user.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br></pre></td></tr></table></figure>
+
+<p>​    Drop into root shell.</p>
+<h2 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a><strong>Variable</strong></h2><p>Assign variables and replace them in string:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">foo=bar</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Value is <span class="variable">$foo</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Value is $foo'</span></span><br></pre></td></tr></table></figure>
+
+<p>Output:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Value is bar</span><br><span class="line">Value is <span class="variable">$foo</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p><code>$0</code>:  The name of the script.</p>
+</li>
+<li><p><code>$1</code>~<code>$9</code>: The Xth argument of the command input.</p>
+</li>
+<li><p><code>$_</code> :The last argument of the previous command.</p>
+</li>
+<li><p><code>$?</code> :The error code from the previous command. 0 means no error.</p>
+</li>
+<li><p><code>$#</code> :The number of arguments we are giving to this program.</p>
+</li>
+<li><p><code>$$</code> : The process ID of this command that is running.</p>
+</li>
+<li><p><code>$@</code> : The vector of all arguments we are giving.</p>
+<p><em>How to use <code>$?</code></em>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">false</span> || <span class="built_in">echo</span> <span class="string">"Oops fail"</span></span><br><span class="line"><span class="literal">true</span> || <span class="built_in">echo</span> <span class="string">"this will not be printed"</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="built_in">echo</span> <span class="string">"Things went well"</span></span><br><span class="line"><span class="literal">false</span> &amp;&amp; <span class="built_in">echo</span> <span class="string">"This will not be printed"</span></span><br></pre></td></tr></table></figure>
+
+<p><code>||</code>: If the <code>$?</code>of the left command is not 0, bash will try to execute the right one.</p>
+<p><code>&amp;&amp;</code>: If the <code>$?</code> of the left command is 0, bash will execute the right one.<br><em>Getting the output of a command into a variable.</em></p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">foo=$(<span class="built_in">pwd</span>)</span><br><span class="line">cat &lt;(ls) &lt;(ls ..)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Globbing-amp-Expand"><a href="#Globbing-amp-Expand" class="headerlink" title="Globbing &amp; Expand"></a><strong>Globbing &amp; Expand</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls *.sh</span><br><span class="line">ls project?.sh</span><br></pre></td></tr></table></figure>
+
+<p>​    <code>*</code> can be replaced by any string.</p>
+<p>​    <code>?</code> can be replaced by one character. </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ls image.png image.jpg</span><br><span class="line">ls image.&#123;png,jpg&#125;</span><br><span class="line">touch &#123;foo,bar&#125;/&#123;a..j&#125;</span><br><span class="line">touch foo/a foo/b foo/c (...) bar/a bar/b (...)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Running-Scripts-written-by-other-language"><a href="#Running-Scripts-written-by-other-language" class="headerlink" title="Running Scripts written by other language"></a><strong>Running Scripts written by other language</strong></h2><p><em>Python:</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/local/bin/python</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">for</span> arg <span class="keyword">in</span> reversed(sys.argv[<span class="number">1</span>:]):</span><br><span class="line">  	print(arg)</span><br></pre></td></tr></table></figure>
+
+<p>The first line tells shell what to use to interpret the scripts.</p>
+<p><em>Python</em>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!usr/bin/env python</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">for</span> arg <span class="keyword">in</span> reversed(sys.argv[<span class="number">1</span>:]):</span><br><span class="line">  	print(arg)</span><br></pre></td></tr></table></figure>
+
+<p>The first line tells shell to use the result of the <code>env</code> command to interpret the scripts.</p>
+<h2 id="Shell-check"><a href="#Shell-check" class="headerlink" title="Shell check"></a><strong>Shell check</strong></h2><p><code>shellcheck</code> can help you to modify your <code>*.sh</code> files to avoid many mistakes and bugs.</p>
+<h1 id="2-Vim"><a href="#2-Vim" class="headerlink" title="2 .Vim"></a>2 .Vim</h1><p>Vim is kind of like a programming language. You can combine those concepts in it together to accomplish a goal.</p>
+<p>Tips:</p>
+<p>​    <code>^V</code>、<code>Ctrl+V</code>、<code>&lt;C-V&gt;</code> means pressing Ctrl button and V button.</p>
+<ul>
+<li><strong>Normal mode</strong> :<ul>
+<li><code>h</code>: :arrow_left: left arrow key.</li>
+<li><code>j</code>: :arrow_down: down arrow key.</li>
+<li><code>k</code>: :arrow_up: up arrow key.</li>
+<li><code>l</code>: :arrow_right: right arrow key.</li>
+<li><code>w</code>: Move the cursor forward by one word.</li>
+<li><code>b</code>: Move the cursor backward by one word.</li>
+<li><code>e</code>: Move to the end of a word.</li>
+<li><code>0</code>: Move to the beginning of a line.</li>
+<li><code>$</code>: Move to the end of a line.</li>
+<li><code>^</code>: (<code>Shift</code>+<code>6</code>) Move to the first non-empty character of this line.</li>
+<li><code>^U</code>,<code>^D</code>: Scroll up; Scroll down.</li>
+<li><code>G</code>: Move to all the way down; <code>gg</code>: Move to the top.</li>
+<li><code>f</code>+<code>?</code>: Find the first character <code>?</code> after current character;</li>
+<li><code>F</code>+<code>?</code>: Find the first character  <code>?</code>before current character.</li>
+<li><code>t</code>+<code>?</code> : Jump to the character before the first character <code>?</code>  after current character.</li>
+<li><code>T</code>+<code>?</code>: Jump to the character after the first character <code>?</code>  after current character.</li>
+<li><code>o</code>,<code>O</code>: Open a new line {under, above} the current line. And enter the insert mode.</li>
+<li><code>d</code>+Movement key: Delete all characters between the current cursor and the end position of the cursor.   <code>dd</code>: Delete this line.</li>
+<li><code>c</code>+Movement key: Delete all characters between the current cursor and the end position of the cursor. And take you into Insert mode.    <code>cc</code>: Delete this line and enter insert mode.</li>
+<li><code>y</code>+Movement key: Copy ~~(Just like <code>d</code> &amp; <code>c</code>)   <code>yy</code>: Copy this line;</li>
+<li><code>p</code>: Paste.</li>
+<li><code>u</code>: Undo.  (The last change.)      <code>^R</code>: Redo.  (The last change.)<ul>
+<li>If you have done a lot of change in Insert mode and exit to normal mode, all those changes are considered as ONE change. <code>u</code> will Undo all those changes.</li>
+</ul>
+</li>
+<li><code>x</code>: Delete this character.</li>
+<li><code>r</code>+<code>?</code>: Replace this character with <code>?</code>.</li>
+<li><code>.</code>: Repeat the previous change.</li>
+<li><code>/</code> + <code>???</code>: Search for <code>???</code>.</li>
+</ul>
+</li>
+<li>Insert mode : Press <code>i</code> to get into Insert mode from normal mode. Press <code>Esc</code> to return to normal mode.</li>
+<li>Replace mode : Press <code>r</code> to get into. Press <code>Esc</code> to get out.</li>
+<li>Visual mode: Press <code>v</code> to enter. To Select blocks of texts.<ul>
+<li>Visual line: Press  <code>Shift</code>+<code>V</code> to enter.</li>
+<li>Visual block: Press <code>^v</code> to enter.</li>
+</ul>
+</li>
+<li>Command-line mode: Press <code>:</code> to enter.<ul>
+<li><code>:w</code>: Write the changes into the file == save.</li>
+<li><code>:q</code> : Quit(Close the current window).</li>
+<li><code>:qa</code>: Close all windows.</li>
+<li><code>:help</code>: Returns the information of the particular key or command following the <code>:help</code>.</li>
+</ul>
+</li>
+</ul>
+<p><em>Counts</em>: Numbers +Command. Means to execute the Command ‘Number’ times.</p>
+<p><em>Modifier</em>:<code>a</code>: around (this whole group) ; <code>i</code>: inside. Interact with different types of grouping things like parentheses and square brackets.</p>
+<h1 id="3-Data-Wrangling"><a href="#3-Data-Wrangling" class="headerlink" title="3. Data Wrangling"></a>3. Data Wrangling</h1><p>The lecture use a system log of a server as the data of demonstation.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh &lt;remote server name&gt; &lt;username&gt; journalctl</span><br><span class="line">ssh &lt;remote server name&gt; &lt;username&gt; <span class="string">'$COMMAND'</span></span><br></pre></td></tr></table></figure>
+
+<p>This is the raw data which will be used in data wrangling.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh tsp journalctl | grep ssh | grep &quot;Disconnected from&quot; &gt; ssh.log</span><br></pre></td></tr></table></figure>
+
+<p>Now I have all the lines which contains <code>ssh</code>, which also contain the username of who had loged into the server and their IP address and so on.</p>
+<h2 id="Using-sed-and-regular-expression"><a href="#Using-sed-and-regular-expression" class="headerlink" title="Using sed and regular expression"></a>Using <code>sed</code> and regular expression</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">'s/TheStringNeedToBeReplaced/NewString/g'</span></span><br><span class="line">cat ssh.log | sed <span class="string">'s/.*Disconnected from //'</span> | less</span><br></pre></td></tr></table></figure>
+
+<p><code>.</code> : means any single character.</p>
+<p><code>-E</code> : Let <code>sed</code> support the extended regular expression.</p>
+<p><code>*</code> : means zero or more the previous character.         <code>+</code>: means one or more the previous character</p>
+<p><code>?</code> : means zero or one the previous one.</p>
+<p><code>[]</code>: lets you match one of many  different chatacters.    Eg: <code>[ab]</code>: <code>a</code> or <code>b</code> ; <code>[0-9]</code> : <code>0</code>~<code>9</code>;</p>
+<p>If you want to match as many times as possible , use <code>g</code>modifier : <code>sed &#39;s/[ab]//g&#39;</code>.</p>
+<p><code>()</code>: Capture group; Use  <code>\(</code> to mean <code>(</code>in the string ;So does <code>\[</code> mean <code>[</code>.</p>
+<p><code>|</code>: Or. eg <code>&#39;(ab|bc)*&#39;</code>;</p>
+<h4 id="The-ultimate-regluar-expression-which-perfectly-matches-the-log-file"><a href="#The-ultimate-regluar-expression-which-perfectly-matches-the-log-file" class="headerlink" title="The ultimate regluar expression which perfectly matches the log file"></a>The ultimate regluar expression which perfectly matches the log file</h4><p>The log file format:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Jan 14 02:00:20 the squarreplanet.com sshd[25663]: Disconnected from authenticating user root 167.99.46.65 port 564692 [preauth]</span><br></pre></td></tr></table></figure>
+
+<p>Command:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ssh.log | sed -E <span class="string">'s/^.*Disconnected form (invalid |authenticationg )? user (.*) [0-9.]+ port [0-9]+ ( \[preauth\])?$/\2/'</span> | head -n100</span><br></pre></td></tr></table></figure>
+
+<p><code>^</code>: matched the head of a line. <code>$</code>: matched the end of a line.</p>
+<p><code>\2</code>: The second capture group.  In this case, Use the second capture group to replace the whole matched string</p>
+<p><em>Now we have all the usernames!</em></p>
+<p>You can use <a href="https://regex101.com" target="_blank" rel="noopener">https://regex101.com</a> to debug and test your regular expression.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ssh.log | sed -E <span class="string">'s/^.*Disconnected form (invalid |authenticationg )? user (.*) [0-9.]+ port [0-9]+ ( \[preauth\])?$/\2/'</span> | head -n100 | sort | uniq -c</span><br></pre></td></tr></table></figure>
+
+<p>Sort all the usernames and don’t show the same ones but show their total numbers.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ssh.log | sed -E <span class="string">'s/^.*Disconnected form (invalid |authenticationg )? user (.*) [0-9.]+ port [0-9]+ ( \[preauth\])?$/\2/'</span> | head -n100 | sort | uniq -c | sort -nk1,1 | tail -n10</span><br></pre></td></tr></table></figure>
+
+<p><code>-n</code> means numerical sort ,<code>k</code>means use whitespace to separate column from the input,<code>1,1</code> means start sort from  column 1 to column 1.</p>
+<h3 id="paste"><a href="#paste" class="headerlink" title="paste:"></a><code>paste</code>:</h3><p>To paste the input together in a certain format.</p>
+<p><code>paste -sd,</code>: paste the input in single line(<code>-s</code>), with <code>,</code> as a separator.</p>
+<h3 id="awk"><a href="#awk" class="headerlink" title="awk :"></a><code>awk</code> :</h3><p><code>awk</code> is a column based sting process, It focused on columnar data.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ssh.log | sed -E <span class="string">'s/^.*Disconnected form (invalid |authenticationg )? user (.*) [0-9.]+ port [0-9]+ ( \[preauth\])?$/\2/'</span> | sort | uniq -c | awk <span class="string">'$1 == 1 &amp;&amp; $2 ~ /^c.*e$/ &#123;print $0&#125;'</span></span><br></pre></td></tr></table></figure>
+
+<p>Print the whole line if the first column equals <code>1</code> and column 2 has the pattern of <code>/^c.*e$/</code>,which means starts with a <code>c</code> and end with a <code>e</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ssh.log | sed -E <span class="string">'s/^.*Disconnected form (invalid |authenticationg )? user (.*) [0-9.]+ port [0-9]+ ( \[preauth\])?$/\2/'</span> | sort | uniq -c | awk <span class="string">'BEGIN &#123;rows = 0&#125; $1 == 1 &amp;&amp; $2 ~ /^c.*e$/ &#123;rows += 1&#125; END &#123;print rows&#125;'</span></span><br></pre></td></tr></table></figure>
+
+<p><code>BEGIN</code> : matches the zeroth line; <code>END</code> : matches after  the last line.</p>
+<h3 id="bc-Basic-calculator"><a href="#bc-Basic-calculator" class="headerlink" title="bc:( Basic calculator ?)"></a><code>bc</code>:( Basic calculator ?)</h3><p>Read from the input buffer and calculate them</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ssh.log | sed -E <span class="string">'s/^.*Disconnected form (invalid |authenticationg )? user (.*) [0-9.]+ port [0-9]+ ( \[preauth\])?$/\2/'</span> | head -n100 | sort | uniq -c | awk <span class="string">'$1 != 1 &#123;print $1&#125;'</span> | paste -sd+ | bc -l</span><br></pre></td></tr></table></figure>
+
+<h3 id="xargs"><a href="#xargs" class="headerlink" title="xargs:"></a><code>xargs</code>:</h3><p>Transform the lines of input into arguments.</p>
+<h1 id="4-Command-line-Environment"><a href="#4-Command-line-Environment" class="headerlink" title="4. Command-line Environment"></a>4. Command-line Environment</h1><h2 id="Job-control"><a href="#Job-control" class="headerlink" title="Job control"></a>Job control</h2><p><code>sleep &lt;Integer&gt;</code>: sleep <code>&lt;Integer&gt;</code> seconds.</p>
+<p>Press <code>Ctrl</code> + <code>c</code> : Send a <code>SIGINT</code> signal to tell the program to stop itself.</p>
+<p>​    <code>man signal</code> to checkout other signals.</p>
+<p>Press <code>Ctrl</code>+<code>z</code>: Suspend the job.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup sleep 2000 &amp;</span><br></pre></td></tr></table></figure>
+
+<p><code>nohup</code> will make this job ignore the hang up signal; <code>&amp;</code> means running the job in background.</p>
+<p><code>jobs</code>: shows the existing jobs.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">jobs</span></span><br><span class="line">[1]  + suspended  sleep 1000</span><br><span class="line">[2]  - running    nohup sleep 2000</span><br></pre></td></tr></table></figure>
+
+<p>Use <code>bg</code> + <code>% +&lt;number&gt;</code> to continue the<code>&lt;number&gt;</code>th  job running in the background, Use <code>fg</code> to bring it to foreground instead .</p>
+<h3 id="kill-command"><a href="#kill-command" class="headerlink" title="kill command"></a><code>kill</code> command</h3><p>Allows you to send any sort of Unix signal</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -STOP %1</span><br><span class="line"><span class="built_in">kill</span> -HUP %2</span><br><span class="line"><span class="built_in">kill</span> -KILL %2</span><br></pre></td></tr></table></figure>
+
+<h2 id="Terminal-multiplexers-Tmux-in-this-lecture"><a href="#Terminal-multiplexers-Tmux-in-this-lecture" class="headerlink" title="Terminal multiplexers (Tmux in this lecture)"></a>Terminal multiplexers (Tmux in this lecture)</h2><p>The three core concepts of tmux:</p>
+<ul>
+<li><p>Sessions</p>
+<ul>
+<li><p>Windows</p>
+<ul>
+<li>Panes</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Dotfiles-starts-with-a"><a href="#Dotfiles-starts-with-a" class="headerlink" title="Dotfiles(starts with a .)"></a>Dotfiles(starts with a .)</h2><p><code>alias &lt;string&gt;==&quot;&lt;Some Commands&gt;&quot;</code>: bind the <code>&lt;string&gt;</code> to the commands.</p>
+<p><code>alias &lt;string&gt;</code>: Show the current mapping of <code>&lt;string&gt;</code>.</p>
+<p><code>vim ~./bashrc</code> to configure your own bash shell.</p>
+<p><em>You can use syslinks and git to make your dotfiles neat.</em></p>
+<h2 id="Remote-machines-Using-ssh-command"><a href="#Remote-machines-Using-ssh-command" class="headerlink" title="Remote machines (Using ssh command)"></a>Remote machines (Using ssh command)</h2><p>SSH is just like a secure shell, it’s just gonna take the responsibility for reaching wherever we want to go and trying to open a session there.</p>
+<p><code>ssh [-p port] &lt;username&gt;@&lt;IP address&gt;/&lt;RemoteMachineName&gt;/&lt;DNS name&gt;</code></p>
+<h3 id="sshkeys"><a href="#sshkeys" class="headerlink" title="sshkeys"></a>sshkeys</h3><p><code>ssh-keygen</code> command can generate the key.</p>
+<p>Use:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;keypsth&gt; | ssh &lt;username&gt;@&lt;DNS name&gt; .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+
+<p>to let the server remember it.</p>
+<h3 id="scp-command"><a href="#scp-command" class="headerlink" title="scp command"></a><code>scp</code> command</h3><p>ssh copy : <code>scp &lt;file&gt; &lt;&lt;name&gt;@&lt;DNS name&gt;:&lt;file&gt;&gt;</code> </p>
+<h3 id="rsync-command"><a href="#rsync-command" class="headerlink" title="rsync command"></a><code>rsync</code> command</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -avP &lt;folder name&gt; &lt;&lt;name&gt;@&lt;DNS name&gt;:&lt;folder name&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>scp</code> will try to copy the file no matter the file is already exist or not.<code>rysnc</code> can try to check if the files are there and start copying from where it stopped.</p>
+<h1 id="5-Version-control-git"><a href="#5-Version-control-git" class="headerlink" title="5. Version control(git)"></a>5. Version control(git)</h1><h2 id="Data-structure-of-git-logical"><a href="#Data-structure-of-git-logical" class="headerlink" title="Data structure of git(logical)"></a>Data structure of git(logical)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Type blob &#x3D; array&lt;byte&gt; 						   &#x2F;&#x2F;file</span><br><span class="line">Type tree &#x3D; map&lt;String , tree | blob &gt; &#x2F;&#x2F; directory</span><br><span class="line">Type commit &#x3D; Struct&#123;</span><br><span class="line">	parrents : array&lt;commit&gt;</span><br><span class="line">	author : string</span><br><span class="line">	message : string</span><br><span class="line">	snapshot : tree												&#x2F;&#x2F; tree&#39;s id</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Type object &#x3D; blob | tree | commit</span><br><span class="line">objects &#x3D; map&lt; string, object&gt;</span><br><span class="line">def store(O)</span><br><span class="line">	id &#x3D; sha1(O) 	&#x2F;&#x2F;sha1 hash</span><br><span class="line">	Objects[id] &#x3D; O</span><br><span class="line">def load(id)</span><br><span class="line">	return objects[id]</span><br><span class="line">	</span><br><span class="line">Type reference &#x3D; map&lt; string, string &gt; &#x2F;&#x2F; &lt;Human readable information , id &gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Commands"><a href="#Commands" class="headerlink" title="Commands"></a>Commands</h2><h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><p>cd into a directory and initialize git.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">ls -a</span><br><span class="line">ls .git</span><br></pre></td></tr></table></figure>
+
+<p>all the git-related data are stored in <code>.git</code> directory.</p>
+<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><p>Show the status , such as which branch I’m currently on ans how many commits there are.</p>
+<h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><p>Stage the changes you’ve made.</p>
+<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><p>Commit the staged changes.</p>
+<p><code>git commit -m &quot;&quot;</code>:Commit the staged changes. <code>&quot;&quot;</code> is the message of this commit.</p>
+<h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><p>Viusalize the version history.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span> --all --graph --decoreate</span><br></pre></td></tr></table></figure>
+
+<p>​    This shows log in graph.</p>
+<h3 id="git-checkout"><a href="#git-checkout" class="headerlink" title="git checkout"></a>git checkout</h3><p>Checkout the files in a certain commit or branch.</p>
+<h3 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h3><p>Show the changes made to the file compare to &lt;&gt;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git diff hello.txt</span><br><span class="line">git diff 42fb7a29 hello.txt</span><br><span class="line">git diff 42fb7a29 HEAD hello.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>git diff</code> will compare the changes to the <code>HEAD</code>(Where I’m looking at) by default.</p>
+<h2 id="Branching-and-Merging"><a href="#Branching-and-Merging" class="headerlink" title="Branching and Merging"></a>Branching and Merging</h2><h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><p>List all branches</p>
+<p><code>git branch -vv</code> : Show branches with more information.<br><code>git branch whatever</code>  : Create a new branch named <code>whatever</code>.<br><code>git checkout -b dog</code> : <code>git branch dog</code> and <code>git checkout dog</code>.</p>
+<h3 id="git-merge"><a href="#git-merge" class="headerlink" title="git merge"></a>git merge</h3><p>If there are merge conflicts , after manully solved those conflicts, use <code>git merge --continue</code> to continue the merge. If we can’t fix those conflicts, use <code>git merge --abort</code> instead.</p>
+<h2 id="Remote"><a href="#Remote" class="headerlink" title="Remote"></a>Remote</h2><h3 id="git-remote"><a href="#git-remote" class="headerlink" title="git remote"></a>git remote</h3><p>git can automatically detect other clones of the same repository.<code>git remote</code> command will list all the remotes for the current repository.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add &lt;name&gt; &lt;URL&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push &lt;remote&gt; &lt;<span class="built_in">local</span> branch&gt; : &lt;remote branch&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>git branch --set-upstream-to=origin/master</code> : set default remote branch.</p>
+<h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> &lt;URL&gt; &lt;folder name&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="git-fetch-amp-git-pull"><a href="#git-fetch-amp-git-pull" class="headerlink" title="git fetch &amp; git pull"></a>git fetch &amp; git pull</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch &lt;remote&gt;</span><br></pre></td></tr></table></figure>
+
+<p><code>git pull</code> : <code>git fetch</code>; <code>git merge</code>.</p>
+<h2 id="Other-useful-commands"><a href="#Other-useful-commands" class="headerlink" title="Other useful commands"></a>Other useful commands</h2><p><code>git config</code></p>
+<p><code>git clone --shallow</code>: Use this when you don’t want the whole git history of it, but only the latest version of it.</p>
+<p><code>git blame</code>: Show the information of a certain commit or file, such as when and who </p>
+<p><code>git bisect</code> : Binary search the first file that failed the test.</p>
+<h1 id="7-Debugging-and-Profiling"><a href="#7-Debugging-and-Profiling" class="headerlink" title="7. Debugging and Profiling"></a>7. Debugging and Profiling</h1><p>I skipped a lot in this lecture. Maybe you can go check it yourself.</p>
+<h2 id="log"><a href="#log" class="headerlink" title="log"></a>log</h2><h3 id="system-log"><a href="#system-log" class="headerlink" title="system log"></a>system log</h3><p><code>log show --last 10s</code>: show the last 10 seconds’ system log.</p>
+<p><code>logger + &lt;Message&gt;</code> Add the message to the system log:</p>
+<h2 id="Debugger"><a href="#Debugger" class="headerlink" title="Debugger"></a>Debugger</h2><p> Depends on the language you use. In this lecture, python is used as an example.</p>
+<h2 id="Profiler"><a href="#Profiler" class="headerlink" title="Profiler"></a>Profiler</h2><ul>
+<li><p>Tracing profiler: Kind of instrument your code, every time your code enters a function call, they kind of take a note of it; Once they finish, they can report it that it had spent how much time executing in this function.</p>
+</li>
+<li><p>Sampling profiler: This issue with tracing profilers is they add a lot of overhead. What sampling profiler is gonna do is gonna execute your program and every some sort of defined period of time, it will stop your program (halt it),and look at the stack trace and know where the code is executing now in this point After doing so long enough , It can tell where most of the time is being spent.</p>
+</li>
+</ul>
+<h2 id="Htop-command"><a href="#Htop-command" class="headerlink" title="Htop command"></a>Htop command</h2><h1 id="8-MetaProgramming"><a href="#8-MetaProgramming" class="headerlink" title="8. MetaProgramming"></a>8. MetaProgramming</h1><h2 id="Bulid-systems"><a href="#Bulid-systems" class="headerlink" title="Bulid systems."></a>Bulid systems.</h2><p>​    Bulid system’s idea is that you want to encode the rules for what commands to run in order to build particular targets into a tool that can do it for you. In particular, you are going to teach this tool the dependencies between those different artifacts that you might build there. The common core idea of the build system is that you have a number of targets ,these are the things that you want to build , and you have a bunch of dependencies and dependencies are things that need to be built in order for these things to be built. And you have rules define how do you go from a complete list of dependencies to the given target. </p>
+<p>​    In this case , the <code>make</code> command will be introduced as a build tool.</p>
+<p>​    <strong>makefile</strong> : where you encode these targets , denpendencies and rules. Eg:</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">paper.pdf: paper.tex plot-data.png</span></span><br><span class="line">&lt;tab&gt;	pdflatex paper.tex</span><br><span class="line"></span><br><span class="line"><span class="section">plot-%.png: %.dat plot.py</span></span><br><span class="line">&lt;tab&gt; ./plot.py -i <span class="variable">$*</span>.dat -o <span class="variable">$@</span></span><br></pre></td></tr></table></figure>
+
+<p>Then, use <code>make</code> command.</p>
+<p>​    <strong>Tips:</strong></p>
+<ul>
+<li><code>%</code>: means any string. But if you reuse it in the dependcy part, it repeats the pattern in the dependency.</li>
+<li><code>:</code> : The things on the left side of <code>:</code> is target, those on the right side of <code>:</code> is the dependcies. The next line starting  with a <strong><em><code>&lt;tab&gt;</code></em></strong> is the rule to build the target with those dependencies.</li>
+<li><code>$*</code>:  A special variable which has already defined for you and makefile rules that matches whatever the <code>%</code> was.</li>
+<li><code>$@</code>: A special variable that means the name of the target.</li>
+<li>make command will remake the targets only when its dependencies are changed.</li>
+</ul>
+<h2 id="Semantic-versioning"><a href="#Semantic-versioning" class="headerlink" title="Semantic versioning"></a>Semantic versioning</h2><p>Suppose <code>8.1.7</code> is some software’s version number. <code>8</code> is considered as major version; <code>1</code> is considered as minor version; <code>7</code> is considered as patch number. </p>
+<p>If the external of the software doesn’t change, such as security bug fixed, you should increase the patch number.</p>
+<p>If you add something to the library , you should increase the minor version and set the patch number to zero.</p>
+<p>If you make a backwards incompatible change where if my software used to work with whatever version you had and tthen  you made a change that means my software will no longer work such as removing a function or rename it then you should increment the major version and set minor and patch to zero.</p>
+<p>​    <em>Lock file</em> : It makes sure that you don’t accidentally update something. The lock file at it’s core is really just a list of your dependencies and which version of them you are currently using.</p>
+<h2 id="Continuous-integration"><a href="#Continuous-integration" class="headerlink" title="Continuous integration"></a>Continuous integration</h2><h1 id="9-Security-and-Cryptography"><a href="#9-Security-and-Cryptography" class="headerlink" title="9. Security and Cryptography"></a>9. Security and Cryptography</h1><h2 id="Entropy"><a href="#Entropy" class="headerlink" title="Entropy"></a>Entropy</h2><p>​    Entropy is a measure of randomness.</p>
+<p>$$<br>Entropy = \log_{2}(Posibilities)<br>$$</p>
+<h2 id="Hash-functions"><a href="#Hash-functions" class="headerlink" title="Hash functions"></a>Hash functions</h2><p>​    Eg : Sha1(Bytes) —-&gt; 160 bits</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span> <span class="string">"hello"</span> | sha1sum</span><br></pre></td></tr></table></figure>
+
+<p><strong><em>Properties:</em></strong></p>
+<ul>
+<li>Non-invertible :  Hard to get the information of the input from the output, even though you have the function.</li>
+<li>Collision resistant : Hard to find two input that have the exactly same output. </li>
+</ul>
+<p>You can use the hash function to help to check whether the two inputs are the same; or just tell someone some information, say a result of a flip of a coin, the he can guess it and check the result himself without being able to cheat to win.</p>
+<h2 id="Key-Derivation-functions-KDFs"><a href="#Key-Derivation-functions-KDFs" class="headerlink" title="Key Derivation functions(KDFs)"></a>Key Derivation functions(KDFs)</h2><p>Eg : PBKDF2(…) —–&gt; </p>
+<p><strong><em>Properties:</em></strong></p>
+<ul>
+<li>Slow to compute : Easy to check but slow to calculate? Sort of like np and p problems?<br>In password authentication , the server have the hash of a password saved and then someone input a password; The server want to know if that corresponds to the hash of the password It’s ok to do it slow because usually you only need to do it once; but when some one want to brute-force the password with the database stole from the website, he need to go through this millions of times, So the attack is slowed down and give the website time to minimize the loss.</li>
+</ul>
+<h2 id="Symmertic-key-cryptography"><a href="#Symmertic-key-cryptography" class="headerlink" title="Symmertic key cryptography"></a>Symmertic key cryptography</h2><p><em>Some fo its functions:</em></p>
+<ul>
+<li><p>Keygeneration() -&gt; key</p>
+</li>
+<li><p>Encrypt(plaintext, key) -&gt; ciphertext</p>
+</li>
+<li><p>Decrypt(cipertext, key) -&gt; plaintext</p>
+</li>
+</ul>
+<p><strong><em>Properties:</em></strong></p>
+<ul>
+<li>Given cipertext, can’t figure out the plain text.(Without the key)</li>
+<li>Decrypt( Encrypt( m, K ), K ) = m;<br><em>A demo:</em></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">openssl aes-256-cbc -salt -<span class="keyword">in</span> README.md -out README.enc.md</span><br><span class="line">cat READ&lt;E.enc.md</span><br><span class="line">openssl aes-256-cbc -d -<span class="keyword">in</span> README.enc.md -out README.dec.mc</span><br><span class="line">cmp README.md README.dec,mc</span><br></pre></td></tr></table></figure>
+
+<p><code>aes-256-cbc</code> is the name of the KDF</p>
+<p><code>salt</code>: Rather than just storing the hash of the password,  we first compute a random data called salt and store the hash of the password conbined with salt.So that the same password in different website are stored differently.</p>
+<h2 id="Asymmetric-Key-croprography"><a href="#Asymmetric-Key-croprography" class="headerlink" title="Asymmetric Key croprography"></a>Asymmetric Key croprography</h2><p><em>Some fo its functions:</em></p>
+<ul>
+<li>Keygeneration() -&gt; (Public key, private key)</li>
+<li>Encrypt(plaintext, Public key) -&gt; ciphertext</li>
+<li>Decrypt(cipertext, Private key) -&gt; plaintext</li>
+<li>Sign( message, Private ket ) -&gt; Signature</li>
+<li>Verify( message , signature, Public key) -&gt; ok?</li>
+</ul>
+<p><strong><em>Properties:</em></strong></p>
+<ul>
+<li>Given cipertext, can’t figure out the plain text.(Without the key)</li>
+<li>Decrypt( Encrypt( m, K ), K ) = m;</li>
+<li>Signature is hard to forge( withput private key)</li>
+<li>Check out the signature.</li>
+</ul>
+<h2 id="Hybrid-encryption"><a href="#Hybrid-encryption" class="headerlink" title="Hybrid encryption"></a>Hybrid encryption</h2><p>An Example :</p>
+<p><em>Sender’s side:</em></p>
+<p>Message :arrow_right::arrow_right::arrow_right::arrow_right::arrow_right::arrow_right::arrow_right::arrow_right::arrow_right::arrow_right::arrow_heading_down:</p>
+<p>Symmetric key generation( ) :arrow_right:  Key.  :arrow_right: Symmentric Encryption :arrow_right:  Cipertext</p>
+<p>​                                                           :arrow_down:</p>
+<p>Public key :arrow_right::arrow_right::arrow_right::arrow_right::arrow_right::arrow_right::arrow_right::arrow_right: Asymmertic Encryptions :arrow_right::arrow_right: Encryptied Key</p>
+<p><em>Receiver’s side:</em></p>
+<p> Encryptied Key:arrow_right: :arrow_right::arrow_heading_down:</p>
+<p>Private key:arrow_right::arrow_right::arrow_right::arrow_right: Asymmertic Decryptions :arrow_right::arrow_right: Key.:arrow_heading_down:</p>
+<p>​                                                                                    Cipertext :arrow_right: Symmetric Decription :arrow_right::arrow_right::arrow_right: Message</p>
+<h1 id="10-Potpourri"><a href="#10-Potpourri" class="headerlink" title="10. Potpourri"></a>10. Potpourri</h1><h2 id="Keyboard-remapping"><a href="#Keyboard-remapping" class="headerlink" title="Keyboard remapping"></a>Keyboard remapping</h2><h2 id="Daemon"><a href="#Daemon" class="headerlink" title="Daemon"></a>Daemon</h2><p>Some program running as background processes and they’re just executing in the background and waiting events to happen or enabling some sort of functionality in your computer. Usually, the daemon program’s name is ended with a ‘d’: ‘sshd’,’systemd’</p>
+<h2 id="File-system"><a href="#File-system" class="headerlink" title="File system"></a>File system</h2><h2 id="Backup"><a href="#Backup" class="headerlink" title="Backup"></a>Backup</h2><h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><h2 id="Commandline-arguments"><a href="#Commandline-arguments" class="headerlink" title="Commandline arguments"></a>Commandline arguments</h2><ul>
+<li><code>--help</code> : Print the information of how you can run this program.</li>
+<li><code>--version</code> : Prints the version of the program.</li>
+<li><code>--verbose</code> or <code>-v</code> : Let you increase the output of the program. It makes the program print more about what it is doing and very often you can repeat the flag like `-vvvvvvv.</li>
+<li>Dry run flag: Differs  from tools to tools. It will run the tool but it will not actually make any changes instead it will just inform you of what it would have done if you hadn’t run it with dry run.</li>
+<li>Interactive mode : For example,<code>rm</code> and <code>move</code> tools both do, often just <code>-i</code> although not always. When you run the tool in the interactive mode, it will prompt you whenever it’s about to do an action which you can’t undo.</li>
+<li>Recursive flag: Often <code>-r</code>. Let the tool traverse down into the tree to go deeper.But you need to opt into this behavior </li>
+<li>Many tools usually ask for a file name of a path. Instead of giving a file name  you can often just give a single <code>-</code> and what that means is standard input or standard output depending on whether that argument is an inpit file or a output file.</li>
+<li>If you don’t want some arguments to be interpreted as flag , use <code>--</code> , then everything after it will not be interpreted as a flag.(<code>--</code>has space on both side)</li>
+</ul>
+<h2 id="WIndow-manager"><a href="#WIndow-manager" class="headerlink" title="WIndow manager"></a>WIndow manager</h2><h2 id="VPNS"><a href="#VPNS" class="headerlink" title="VPNS"></a>VPNS</h2><h2 id="Markdowns"><a href="#Markdowns" class="headerlink" title="Markdowns"></a>Markdowns</h2><h2 id="Hammer-spoon-MacOS"><a href="#Hammer-spoon-MacOS" class="headerlink" title="Hammer spoon(MacOS)"></a>Hammer spoon(MacOS)</h2><p>Use Luna Scripts to automize your computer.</p>
+<h2 id="Booting-process-and-live-USBs"><a href="#Booting-process-and-live-USBs" class="headerlink" title="Booting process and live USBs"></a>Booting process and live USBs</h2><h2 id="Vitural-machine"><a href="#Vitural-machine" class="headerlink" title="Vitural machine"></a>Vitural machine</h2><p>Vagrant</p>
+<h2 id="Notebook-programming-environment"><a href="#Notebook-programming-environment" class="headerlink" title="Notebook programming environment"></a>Notebook programming environment</h2><p>Jupiter Nodebook</p>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><h1 id="11-Q-amp-A"><a href="#11-Q-amp-A" class="headerlink" title="11. Q&amp;A"></a>11. Q&amp;A</h1><h2 id="Other-data-wrangling-tool"><a href="#Other-data-wrangling-tool" class="headerlink" title="Other data wrangling tool"></a>Other data wrangling tool</h2><p>Perl? Use Vim and pandas in python</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kylincommander.github.io.git/2020/08/23/Note-for-The-Missing-Semester-of-Your-CS-Education-2020-of-MIT/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/09/hello-world/" class="archive-article-date">
-  	<time datetime="2020-06-09T00:58:11.637Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/09/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/09/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -242,8 +718,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
