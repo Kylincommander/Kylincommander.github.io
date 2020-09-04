@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://Kylincommander.github.io.git">
-  <title>Useful Vim | Hexo</title>
+  <title>Summary of developing Floating-point ALU | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="0. Configure your own Vim12cd ~vim .vimrc  0.1 Key mapnoremap a b ​    nore means no recursion. remap a to b: map Q :q&lt;CR&gt; ​    Map Q to :q and Enter. 0.2 Other useful settingsset number : Show">
+  <meta name="description" content="The Last two month I was working for a porject of my lab. And I am responsible for designing a Floating-point ALU module with Verilog. Due to its confidentiality, I can’t  publish the original code of">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Useful Vim">
-<meta property="og:url" content="https://kylincommander.github.io.git/2020/08/28/Useful-Vim/index.html">
+<meta property="og:title" content="Summary of developing Floating-point ALU">
+<meta property="og:url" content="https://kylincommander.github.io.git/2020/09/04/Summary-of-developing-Floating-point-ALU/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="0. Configure your own Vim12cd ~vim .vimrc  0.1 Key mapnoremap a b ​    nore means no recursion. remap a to b: map Q :q&lt;CR&gt; ​    Map Q to :q and Enter. 0.2 Other useful settingsset number : Show">
+<meta property="og:description" content="The Last two month I was working for a porject of my lab. And I am responsible for designing a Floating-point ALU module with Verilog. Due to its confidentiality, I can’t  publish the original code of">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://www.viemu.com/vi-vim-cheat-sheet.gif">
-<meta property="article:published_time" content="2020-08-28T03:15:21.000Z">
-<meta property="article:modified_time" content="2020-08-28T03:50:07.020Z">
+<meta property="article:published_time" content="2020-09-04T03:05:37.000Z">
+<meta property="article:modified_time" content="2020-09-04T03:08:00.510Z">
 <meta property="article:author" content="Gong Feiyang">
-<meta property="article:tag" content="Notes">
+<meta property="article:tag" content="Diary">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.viemu.com/vi-vim-cheat-sheet.gif">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -157,148 +155,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Useful-Vim" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Summary-of-developing-Floating-point-ALU" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Useful Vim
+      Summary of developing Floating-point ALU
     </h1>
   
 
         
-        <a href="/2020/08/28/Useful-Vim/" class="archive-article-date">
-  	<time datetime="2020-08-28T03:15:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-28</time>
+        <a href="/2020/09/04/Summary-of-developing-Floating-point-ALU/" class="archive-article-date">
+  	<time datetime="2020-09-04T03:05:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0-Configure-your-own-Vim"><a href="#0-Configure-your-own-Vim" class="headerlink" title="0. Configure your own Vim"></a>0. Configure your own Vim</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">vim .vimrc</span><br></pre></td></tr></table></figure>
+        <p>The Last two month I was working for a porject of my lab. And I am responsible for designing a Floating-point ALU module with Verilog. Due to its confidentiality, I can’t  publish the original code of what I am doing right now(Or maybe forever). But the bugs I have fixed and the way I do all those testings is worthy to share.</p>
+<h1 id="Important-Mistakes-and-Lessons"><a href="#Important-Mistakes-and-Lessons" class="headerlink" title="Important Mistakes and Lessons"></a>Important Mistakes and Lessons</h1><h2 id="1-Convert-a-Two’s-complement-to-its-true-form"><a href="#1-Convert-a-Two’s-complement-to-its-true-form" class="headerlink" title="1. Convert a Two’s complement to its true form"></a>1. Convert a Two’s complement to its true form</h2><p>Suppose there’s a w-bit number in true form, you can convert it to two’s complement without worrying anything, becasue the two’s complement can represent one more number than true form with same bits. (-0 in true form is interpreted as -2^(w - 1) in two’s complement).</p>
+<p><strong><em>But</em></strong>, before you convert a two’s complement to a true form number, <strong><em>Please do check if it is the minimun number in two’s complement!!!!!</em></strong>.</p>
+<h2 id="2-Truncating-in-true-form-and-two’s-complement"><a href="#2-Truncating-in-true-form-and-two’s-complement" class="headerlink" title="2. Truncating in true form and two’s complement"></a>2. Truncating in true form and two’s complement</h2><p>​    Due to the ALU only have limited bits for store the temperate result and all those rounding and normalization stuff is handled in another phase of the pipeline. So I need to truncate the temperate result before the rounding.</p>
+<p>​    The difference between truncating them in both forms is actually quite obvious when you sit down to think about it, but at first I just thought storing two more bits than the length of  final result can abvoid all the errors.<strong><em>Well , it dosen’t. At least Not all the errors</em></strong></p>
+<table>
+<thead>
+<tr>
+<th>Different stages</th>
+<th>True form</th>
+<th>Two’s complent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>5-bit original number</td>
+<td>1.1001</td>
+<td>1.0111</td>
+</tr>
+<tr>
+<td>Turncate to 4 bits</td>
+<td>1.100</td>
+<td>1.011</td>
+</tr>
+<tr>
+<td>Decimal result</td>
+<td>-0.5</td>
+<td>-0.625</td>
+</tr>
+</tbody></table>
+<p>​    Clearly truncating a negative number in true form can make it greater while truncating in two’s complement making it less. This could lead to a mistake when you transform the two’s complement to true form and then do the rounding or other operation. Store more bits during truancating can only <strong><em>reduce</em></strong> the posssibility of bumping into this bug. <strong><em>You should always take care of this suitation.</em></strong></p>
+<h2 id="3-Other-binding-bugs-in-Verilog"><a href="#3-Other-binding-bugs-in-Verilog" class="headerlink" title="3. Other binding bugs in Verilog"></a>3. Other binding bugs in Verilog</h2><p>​    You’d better make a cleat table that tells what does each bit in a vector represent. This can save you tones of time in debuging.</p>
+<h1 id="Testing-Using-shell-and-python"><a href="#Testing-Using-shell-and-python" class="headerlink" title="Testing(Using shell and python)"></a>Testing(Using shell and python)</h1><p>​    Test should include both random data test and corner case test. </p>
+<h2 id="Corner-case-test"><a href="#Corner-case-test" class="headerlink" title="Corner case test"></a>Corner case test</h2><p>Corner case should cover erery typical case of input and output. Store all the test case in a distinct file and keep enrich it during your debug is a good idea.</p>
+<h2 id="Random-data-test"><a href="#Random-data-test" class="headerlink" title="Random data test"></a>Random data test</h2><p>This part is also inportant. It’s almost inevitable that you would forget to consider some quirky cases that make your code don’t work out as you wish. The truncating bug is found when I do the random case at about 500th round.</p>
+<h2 id="Reference-data"><a href="#Reference-data" class="headerlink" title="Reference data"></a>Reference data</h2><p>To generate the reference data for my ALU, I use python to simulate the ALU. When the output is different, you should check both the code in Verilog and in python.</p>
+<h2 id="A-glipse-of-the-auto-test-script-and-python-simulation-code"><a href="#A-glipse-of-the-auto-test-script-and-python-simulation-code" class="headerlink" title="A glipse of the auto test script and python simulation code"></a>A glipse of the auto test script and python simulation code</h2><p>Auto test: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash/</span></span><br><span class="line"><span class="comment"># Select test times here</span></span><br><span class="line"><span class="built_in">times</span>=300</span><br><span class="line"><span class="comment"># --------</span></span><br><span class="line">rm -f DIFF_*.dat</span><br><span class="line">RAWFILENAME1=<span class="string">"RawTestData_f.dat"</span></span><br><span class="line">NEWINPUTDATA1=<span class="string">"Input_f.dat"</span></span><br><span class="line">RAWFILENAME2=<span class="string">"RawTestData_h.dat"</span></span><br><span class="line">NEWINPUTDATA2=<span class="string">"Input_h.dat"</span></span><br><span class="line"><span class="comment"># Corner case test</span></span><br><span class="line">cat <span class="string">"corner_case_f.dat"</span> | awk  <span class="string">'&#123;printf $1"\n"&#125;'</span> &gt; <span class="variable">$NEWINPUTDATA1</span></span><br><span class="line">cat <span class="string">"corner_case_f.dat"</span> | awk  <span class="string">'&#123;printf $2"\n"&#125;'</span> &gt;&gt; <span class="variable">$NEWINPUTDATA1</span></span><br><span class="line">cat <span class="string">"corner_case_h.dat"</span> | awk  <span class="string">'&#123;printf $1"\n"&#125;'</span> &gt; <span class="variable">$NEWINPUTDATA2</span></span><br><span class="line">cat <span class="string">"corner_case_h.dat"</span> | awk  <span class="string">'&#123;printf $2"\n"&#125;'</span> &gt;&gt; <span class="variable">$NEWINPUTDATA2</span></span><br><span class="line"></span><br><span class="line">iverilog -o test_tb.out test_tb.v</span><br><span class="line">./test_tb.out</span><br><span class="line"></span><br><span class="line">python3 ./Reference_data.py -h</span><br><span class="line">python3 ./Reference_data.py -f</span><br><span class="line"><span class="comment"># 1 to 12 is the result except sum</span></span><br><span class="line">diff &lt;(awk -F<span class="string">'\t'</span> <span class="string">'&#123;for(i=1;i&lt;=12;i++)&#123;if($2 != "")&#123;printf $i"\t"&#125;&#125;if($2 != "")printf "\n"&#125;'</span> Output_f.dat) &lt;(awk -F<span class="string">'\t'</span> <span class="string">'&#123;for(i=1;i&lt;=12;i++)&#123;if($2 != "")&#123;printf $i"\t"&#125;&#125;if($2 != "")printf "\n"&#125;'</span> <span class="variable">$RAWFILENAME1</span>) &gt; DIFF_f.dat</span><br><span class="line">diff &lt;(awk -F<span class="string">'\t'</span> <span class="string">'&#123;for(i=1;i&lt;=12;i++)&#123;if($2 != "")&#123;printf $i"\t"&#125;&#125;if($2 != "")printf "\n"&#125;'</span> Output_h.dat) &lt;(awk -F<span class="string">'\t'</span> <span class="string">'&#123;for(i=1;i&lt;=12;i++)&#123;if($2 != "")&#123;printf $i"\t"&#125;&#125;if($2 != "")printf "\n"&#125;'</span> <span class="variable">$RAWFILENAME2</span>) &gt; DIFF_h.dat</span><br><span class="line">diff &lt;(awk -F<span class="string">'\t'</span> <span class="string">'END &#123;print $13 &#125;'</span> Output_f.dat) &lt;(awk -F<span class="string">'\t'</span> <span class="string">'END &#123;print $1&#125;'</span> <span class="variable">$RAWFILENAME1</span>) &gt;&gt; DIFF_f.dat</span><br><span class="line">diff &lt;(awk -F<span class="string">'\t'</span> <span class="string">'END &#123;print $13 &#125;'</span> Output_h.dat) &lt;(awk -F<span class="string">'\t'</span> <span class="string">'END &#123;print $1&#125;'</span> <span class="variable">$RAWFILENAME2</span>) &gt;&gt; DIFF_h.dat</span><br><span class="line"></span><br><span class="line"><span class="comment"># Random test case</span></span><br><span class="line"><span class="keyword">while</span> ((<span class="built_in">times</span> &gt; 0))</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">rm -f <span class="variable">$RAWFILENAME1</span> </span><br><span class="line">python3 ./Generate_data.py -f</span><br><span class="line">cat <span class="variable">$RAWFILENAME1</span> | sed -E <span class="string">'s/[a-z_A-Z]+://g'</span> | awk -F<span class="string">'\t'</span> <span class="string">'$2 != "" &#123;printf $1"\n"&#125;'</span> | cat &gt;<span class="variable">$NEWINPUTDATA1</span></span><br><span class="line">cat <span class="variable">$RAWFILENAME1</span> | sed -E <span class="string">'s/[a-z_A-Z]+://g'</span> | awk -F<span class="string">'\t'</span> <span class="string">'$2 != "" &#123;printf $2"\n"&#125;'</span> | cat &gt;&gt;<span class="variable">$NEWINPUTDATA1</span></span><br><span class="line"></span><br><span class="line">rm -f <span class="variable">$RAWFILENAME2</span> </span><br><span class="line">python3 ./Generate_data.py -h</span><br><span class="line">cat <span class="variable">$RAWFILENAME2</span> | sed -E <span class="string">'s/[a-z_A-Z]+://g'</span> | awk -F<span class="string">'\t'</span> <span class="string">'$2 != "" &#123;printf $1"\n"&#125;'</span> | cat &gt;<span class="variable">$NEWINPUTDATA2</span></span><br><span class="line">cat <span class="variable">$RAWFILENAME2</span> | sed -E <span class="string">'s/[a-z_A-Z]+://g'</span> | awk -F<span class="string">'\t'</span> <span class="string">'$2 != "" &#123;printf $2"\n"&#125;'</span> | cat &gt;&gt;<span class="variable">$NEWINPUTDATA2</span></span><br><span class="line"></span><br><span class="line">iverilog -o test_tb.out test_tb.v</span><br><span class="line">./test_tb.out</span><br><span class="line"><span class="comment"># 1 to 12 is the result except sum</span></span><br><span class="line"></span><br><span class="line">pre_len_1=$(awk <span class="string">'END&#123;print NR&#125;'</span> DIFF_f.dat)</span><br><span class="line">pre_len_2=$(awk <span class="string">'END&#123;print NR&#125;'</span> DIFF_h.dat)</span><br><span class="line">diff &lt;(awk -F<span class="string">'\t'</span> <span class="string">'&#123;for(i=1;i&lt;=12;i++)&#123;if($2 != "")&#123;printf $i"\t"&#125;&#125;if($2 != "")printf "\n"&#125;'</span> Output_f.dat) &lt;(awk -F<span class="string">'\t'</span> <span class="string">'&#123;for(i=1;i&lt;=12;i++)&#123;if($2 != "")&#123;printf $i"\t"&#125;&#125;if($2 != "")printf "\n"&#125;'</span> <span class="variable">$RAWFILENAME1</span>) &gt;&gt; DIFF_f.dat</span><br><span class="line">diff &lt;(awk -F<span class="string">'\t'</span> <span class="string">'&#123;for(i=1;i&lt;=12;i++)&#123;if($2 != "")&#123;printf $i"\t"&#125;&#125;if($2 != "")printf "\n"&#125;'</span> Output_h.dat) &lt;(awk -F<span class="string">'\t'</span> <span class="string">'&#123;for(i=1;i&lt;=12;i++)&#123;if($2 != "")&#123;printf $i"\t"&#125;&#125;if($2 != "")printf "\n"&#125;'</span> <span class="variable">$RAWFILENAME2</span>) &gt;&gt; DIFF_h.dat</span><br><span class="line">diff &lt;(awk -F<span class="string">'\t'</span> <span class="string">'END &#123;print $13 &#125;'</span> Output_f.dat) &lt;(awk -F<span class="string">'\t'</span> <span class="string">'END &#123;print $1&#125;'</span> <span class="variable">$RAWFILENAME1</span>) &gt;&gt; DIFF_f.dat</span><br><span class="line">diff &lt;(awk -F<span class="string">'\t'</span> <span class="string">'END &#123;print $13 &#125;'</span> Output_h.dat) &lt;(awk -F<span class="string">'\t'</span> <span class="string">'END &#123;print $1&#125;'</span> <span class="variable">$RAWFILENAME2</span>) &gt;&gt; DIFF_h.dat</span><br><span class="line"><span class="keyword">if</span> (( $(awk <span class="string">'END&#123;print NR&#125;'</span> DIFF_f.dat) != pre_len_1 || $(awk <span class="string">'END&#123;print NR&#125;'</span> DIFF_h.dat) != pre_len_2 ));<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Error detected!!"</span></span><br><span class="line"><span class="built_in">break</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;times&#125;</span> tests remaining"</span></span><br><span class="line">((<span class="built_in">times</span>=<span class="built_in">times</span>-1))</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="0-1-Key-map"><a href="#0-1-Key-map" class="headerlink" title="0.1 Key map"></a>0.1 Key map</h3><p><code>noremap a b</code></p>
-<p>​    <code>nore</code> means no recursion. remap <code>a</code> to <code>b</code>:</p>
-<p><code>map Q :q&lt;CR&gt;</code></p>
-<p>​    Map <code>Q</code> to <code>:q</code> and <code>Enter</code>.</p>
-<h3 id="0-2-Other-useful-settings"><a href="#0-2-Other-useful-settings" class="headerlink" title="0.2 Other useful settings"></a>0.2 Other useful settings</h3><p><code>set number</code> : Show the number of line.</p>
-<p><code>set relativenumber</code>: Show the relativenumber of line.</p>
-<p><code>set hlsearch</code> Highlitht the search result.</p>
-<p><code>set ignorecase</code>: Ingore the capital and non capital charter in search.</p>
-<p><code>set smartcase</code>: Smartly select the ingorecase. </p>
-<p><code>set scrolloff=5</code>: Make sure there will always be <code>5</code> lines around your cursor.  </p>
-<h2 id="0-3-Cheat-sheet-of-Vim"><a href="#0-3-Cheat-sheet-of-Vim" class="headerlink" title="0.3 Cheat sheet of Vim"></a>0.3 Cheat sheet of Vim</h2><p><img src="http://www.viemu.com/vi-vim-cheat-sheet.gif" alt="Vim cheat sheet"></p>
-<h1 id="1-Normal-Mode"><a href="#1-Normal-Mode" class="headerlink" title="1. Normal Mode"></a>1. Normal Mode</h1><h2 id="1-1-Small-edit-in-normal-mode"><a href="#1-1-Small-edit-in-normal-mode" class="headerlink" title="1.1 Small edit in normal mode"></a>1.1 Small edit in normal mode</h2><p><strong><em>Core Idea:</em></strong></p>
-<ul>
-<li><p><code>[&lt;times&gt;]&lt;operation&gt; [times]&lt;motion&gt;</code> : Execute the operation for <code>&lt;times&gt;</code> times with the movement.</p>
-</li>
-<li><p><code>&lt;operation&gt;&lt;operation(Same as the previous one)&gt;</code>: Execute the operation to the current line.</p>
-</li>
-</ul>
-<p><code>x</code>: Delete the character.</p>
-<p><code>u</code>:(Undo)  (The last change.)      <code>^R</code>: Redo.  (The last change.)</p>
-<ul>
-<li>If you have done a lot of change in Insert mode and exit to normal mode, all those changes are considered as ONE change. <code>u</code> will Undo all those changes.</li>
-</ul>
-<p><code>d</code>+Movement key: Delete all characters between the current cursor and the end position of the cursor.   <code>dd</code>: Delete this line. Well, actually the “delete” is actually “cut”.Use <code>p</code> to paste them.</p>
-<p><code>y</code>:+Movement key (Yank) Copy.Copy all characters between the current cursor and the end position of the cursor.    <code>yy</code>: Copy this line.</p>
-<p><code>c</code>+Movement key: (Change) Delete all characters between the current cursor and the end position of the cursor. And take you into Insert mode.    <code>cc</code>: Delete this line and enter insert mode.</p>
-<p><code>p</code> : Paste after the cursor.</p>
-<p><code>P</code> : Paste before the cursor.</p>
-<p><code>.</code>: Repeat the previous change.</p>
-<p><strong><em>Using register with yank</em></strong></p>
-<p><code>&quot;ayy</code>: Copy this line into register a;</p>
-<p><code>&quot;Ayy</code>: Copy this line and append it into register a;</p>
-<p><code>&quot;ap</code> : Paste the content in register a into this line.</p>
-<p><em>motion:</em></p>
-<ul>
-<li>Combine with the movement key introduced in *<em>Moving your cursor *</em>part.</li>
-<li>Combine with the <code>i</code> (in)  and <code>a</code>(Around) instruction and the movement key or group:<ul>
-<li><code>ciw</code>: <strong>C</strong>hange <strong>I</strong>n <strong>W</strong>ord(forward).</li>
-<li><code>cin[</code>: Change In [].</li>
-<li><code>ci&quot;</code>: Change in “”.</li>
-<li><code>ca&quot;</code>: Change the whole “…”.</li>
-</ul>
-</li>
-</ul>
-<h2 id="1-2-Diffent-ways-to-get-into-insert-mode"><a href="#1-2-Diffent-ways-to-get-into-insert-mode" class="headerlink" title="1.2 Diffent ways to get into insert mode"></a>1.2 Diffent ways to get into insert mode</h2><p><code>i</code> : (Insert) Get into Insert Mode with the cursor in the current position.</p>
-<p><code>I</code>: (Insert) Get into Insert Mode with the cursor move to the start of the current line.</p>
-<p><code>a</code>: (Append) Get into Insert Mode with the cursor in the next position.</p>
-<ul>
-<li>This could be useful when you try to add something at the end of line, because Vim won’t let you to move you cursor to the hidden charator<code>\n</code>.</li>
-</ul>
-<p><code>A</code>: (Append) Get into insert mode with the cursor move to the end of the currnet line.</p>
-<p><code>o</code>: (Open a new line). Open a new line above the currnet line and get into insert mode.</p>
-<p><code>O</code> : (Open a new line). Open a new line under the current line and get into insert mode.</p>
-<h2 id="1-3-Moving-your-cursor"><a href="#1-3-Moving-your-cursor" class="headerlink" title="1.3 Moving your cursor"></a>1.3 Moving your cursor</h2><h3 id="1-3-1-Moving-between-nearby-lines"><a href="#1-3-1-Moving-between-nearby-lines" class="headerlink" title="1.3.1 Moving between nearby lines"></a>1.3.1 Moving between nearby lines</h3><p><code>h</code>: :arrow_left: left arrow key.</p>
-<p><code>j</code>: :arrow_down: down arrow key.</p>
-<p><code>k</code>: :arrow_up: up arrow key.</p>
-<p><code>l</code>: :arrow_right: right arrow key.</p>
-<p><code>%</code>: Go to the another part of the parenthesis matching. ( ‘()’ , ‘[]’, ‘{}’ )</p>
-<h3 id="1-3-2-Moving-in-the-screen"><a href="#1-3-2-Moving-in-the-screen" class="headerlink" title="1.3.2 Moving in the screen"></a>1.3.2 Moving in the screen</h3><p><code>H</code>: Move to the head of the screen.</p>
-<p><code>M</code>: Move to the middle of the screen.</p>
-<p><code>L</code>: Move to the bottom of the screen.</p>
-<p><code>&lt;number&gt;</code> +<code>|</code> : Move to the <code>&lt;number&gt;</code>th column. </p>
-<h3 id="1-3-3-Moving-in-one-line"><a href="#1-3-3-Moving-in-one-line" class="headerlink" title="1.3.3 Moving in one line"></a>1.3.3 Moving in one line</h3><p><code>w</code>: Move the cursor forward by one word.</p>
-<p><code>b</code>: Move the cursor backward by one word.</p>
-<p><code>e</code>: Move to the end of a word.</p>
-<p> <code>0</code>: Move to the beginning of a line.</p>
-<p><code>$</code>: Move to the end of a line.</p>
-<p><code>^</code>: (<code>Shift</code>+<code>6</code>) Move to the first non-empty character of this line.</p>
-<p><code>f</code>+<code>?</code>: Find the first character <code>?</code> after current character in this line.(The cursor will be on this character)</p>
-<p><code>F</code>+<code>?</code>: Find the first character  <code>?</code>before current character in this line.(The cursor will be on this character)</p>
-<p><code>t</code>+<code>?</code> : Jump to the character before the first character <code>?</code>  after current character in this line.(The cursor will be in front of  this character)</p>
-<p><code>T</code>+<code>?</code>: Jump to the character after the first character <code>?</code>  after current character in this line.(The cursor will be after this character)</p>
-<h3 id="1-3-4-Moving-in-the-file"><a href="#1-3-4-Moving-in-the-file" class="headerlink" title="1.3.4 Moving in the file"></a>1.3.4 Moving in the file</h3><p><code>^U</code>,<code>^D</code>: Scroll up; Scroll down.</p>
-<p><code>G</code>: Move to all the way down; <code>gg</code>: Move to the top.</p>
-<p><code>&lt;numbers&gt; + G</code> : Move to the <code>&lt;numbers&gt;</code> line.</p>
-<p><code>^o</code>: Go back to the previous cursor position.</p>
-<p><code>^i</code>: Go forward to the previous cursor position.</p>
-<h3 id="1-3-5-Search"><a href="#1-3-5-Search" class="headerlink" title="1.3.5 Search"></a>1.3.5 Search</h3><p><code>/</code> + <code>&lt;something&gt;</code>: Search for <code>&lt;something&gt;</code> after current position.</p>
-<p><code>?</code> + <code>&lt;something&gt;</code>: Search for <code>&lt;something&gt;</code> before current position.</p>
-<p><code>n</code>: search the next one forward.</p>
-<p><code>N</code> : search the next one backward.</p>
-<h1 id="2-Insert-Mode"><a href="#2-Insert-Mode" class="headerlink" title="2. Insert Mode"></a>2. Insert Mode</h1><p>Press <code>i</code> to get into Insert mode from normal mode. Press <code>Esc</code> to return to normal mode.</p>
-<p>Use<code>CTRL</code> + <code>[</code> to return to normal mode as well.</p>
-<h1 id="3-Visual-Mode"><a href="#3-Visual-Mode" class="headerlink" title="3. Visual Mode"></a>3. Visual Mode</h1><p>Just like holding the left buttion of yout mouse in other editor.</p>
-<ul>
-<li>Visual normal: Press <code>v</code> to enter. To Select  texts.</li>
-</ul>
-<ul>
-<li>Visual line: Press  <code>Shift</code>+<code>V</code> to enter.</li>
-<li>Visual block: Press <code>^v</code> to enter.</li>
-</ul>
-<p>Then combine with the movement to select the content.</p>
-<p>Then you can do anything you can do in normal mode to the content you just selected.</p>
-<p>If your operation is more complex than such as <code>d</code> or <code>c</code>,   press <code>:</code>  and input <code>normal</code>+<code>&lt;space&gt;</code>+Command.</p>
-<ul>
-<li>eg:<code>:&#39;&lt;,&#39;&gt;normal I sometextaddedAtTheBeginningOfEveryLine</code></li>
-</ul>
-<h1 id="4-Command-line-Mode"><a href="#4-Command-line-Mode" class="headerlink" title="4. Command-line Mode"></a>4. Command-line Mode</h1><p> Press <code>:</code> to enter.</p>
-<ul>
-<li><code>:w</code>: Write the changes into the file == save. <ul>
-<li><code>:w</code> + path : save to ‘path’.</li>
-</ul>
-</li>
-<li><code>:q</code> : Quit(Close the current window).</li>
-<li><code>:qa</code>: Close all windows.</li>
-<li><code>:help</code>: Returns the information of the particular key or command following the <code>:help</code>.</li>
-</ul>
-<h2 id="4-1-Split"><a href="#4-1-Split" class="headerlink" title="4.1 Split"></a>4.1 Split</h2><p><code>:split</code>: Divide the window into two parts(Upper and lower).</p>
-<p><code>:split:</code>(Vertical split) :Divide the window into two parts(Left and right).</p>
-<p>Change between windows:</p>
-<p><code>^W</code> + movement to move between windows.</p>
-<h2 id="4-2-Repalce-pattern"><a href="#4-2-Repalce-pattern" class="headerlink" title="4.2 Repalce pattern"></a>4.2 Repalce pattern</h2><p><code>:s/&lt;old&gt;/&lt;new&gt;</code> : Replace the first <code>&lt;old&gt;</code> with <code>&lt;new&gt;</code> in this line.</p>
-<p><code>:s/&lt;old&gt;/&lt;new&gt;/g</code>: Replace all the <code>&lt;old&gt;</code> with <code>&lt;new&gt;</code> in this line. </p>
-<p>Use<code>:&lt;number1&gt;,&lt;number2&gt;s///g</code> to replace from line <code>&lt;number1&gt;</code> to <code>&lt;number2&gt;</code>.</p>
-<p>Use<code>:%s///g</code> to replace in the whole file.</p>
-<p><strong><em>tips:</em></strong></p>
-<p>Use <code>:%s/^/xxx/g</code> to insert something in the front of every line. (use <code>$</code> instead to insert at the end of every line. ) </p>
-<h1 id="5-Macro"><a href="#5-Macro" class="headerlink" title="5. Macro"></a>5. Macro</h1><p><code>q</code> +<code>&lt;name of register&gt;</code>: Start recording macro to register<code>&lt;name of register&gt;</code>. Or finish recording.</p>
-<p>Use <code>@</code>+<code>&lt;name of register&gt;</code> to execute the macro.</p>
-<p>Use<code>@@</code> to execute the previous macro.2j</p>
+
+
+<p>Python simulation:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FLOAT</span>:</span></span><br><span class="line"><span class="meta">@staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">SUM</span><span class="params">(O_L_A)</span>:</span></span><br><span class="line">        <span class="comment"># Extend to 20 bits or 40 bits to calculate</span></span><br><span class="line">        ori_len = len(O_L_A[<span class="number">0</span>].fra)</span><br><span class="line">        L_A = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(O_L_A)):</span><br><span class="line">            A = FLOAT(<span class="string">""</span>.zfill(<span class="number">20</span>)) <span class="keyword">if</span> ori_len == <span class="number">12</span> <span class="keyword">else</span> FLOAT(<span class="string">""</span>.zfill(<span class="number">40</span>))</span><br><span class="line">            A.sign = O_L_A[i].sign</span><br><span class="line">            A.exp  = O_L_A[i].exp</span><br><span class="line">            A.fra  = O_L_A[i].fra</span><br><span class="line">            L_A.append(A)</span><br><span class="line"></span><br><span class="line">        max_exp = <span class="number">-1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(L_A)):</span><br><span class="line">            <span class="keyword">if</span> L_A[i].exp &gt; max_exp:</span><br><span class="line">                max_exp = L_A[i].exp</span><br><span class="line">        </span><br><span class="line">        res = FLOAT(<span class="string">""</span>.zfill(<span class="number">20</span>)) <span class="keyword">if</span> ori_len == <span class="number">12</span> <span class="keyword">else</span> FLOAT(<span class="string">""</span>.zfill(<span class="number">40</span>))</span><br><span class="line">        res.exp = max_exp</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(L_A)):</span><br><span class="line">            <span class="keyword">while</span> L_A[i].exp &lt; max_exp:</span><br><span class="line">                L_A[i].exp += <span class="number">1</span></span><br><span class="line">                L_A[i].fra = <span class="string">"0"</span> + L_A[i].fra</span><br><span class="line">            L_A[i].fra = L_A[i].fra[<span class="number">0</span> : ori_len]</span><br><span class="line">            <span class="keyword">if</span> ori_len == <span class="number">12</span>:</span><br><span class="line">                L_A[i].fra = L_A[i].fra.rjust(<span class="number">20</span>,<span class="string">'0'</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                L_A[i].fra = L_A[i].fra.rjust(<span class="number">40</span>,<span class="string">'0'</span>)</span><br><span class="line">        </span><br><span class="line">        ans = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(L_A)):</span><br><span class="line">            fra = L_A[i].fra</span><br><span class="line">            Oprand = int(L_A[i].fra,<span class="number">2</span>) <span class="keyword">if</span> L_A[i].sign == <span class="string">'0'</span> <span class="keyword">else</span> -int(L_A[i].fra,<span class="number">2</span>)</span><br><span class="line">            ans += Oprand</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> ans &gt;= <span class="number">0</span>:</span><br><span class="line">            res.sign = <span class="string">'0'</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res.sign = <span class="string">'1'</span></span><br><span class="line">        <span class="keyword">if</span> ans == <span class="number">0</span>:</span><br><span class="line">            res.exp = <span class="number">0</span></span><br><span class="line">            res.fra = <span class="string">""</span>.zfill(ori_len)</span><br><span class="line">        ans_bin = bin(abs(ans))[<span class="number">2</span> : ] <span class="comment"># True Form</span></span><br><span class="line">        <span class="keyword">if</span> ori_len == <span class="number">12</span>:</span><br><span class="line">            <span class="keyword">if</span> len(ans_bin) &lt; <span class="number">20</span>:</span><br><span class="line">                ans_bin = ans_bin.rjust(<span class="number">20</span>,<span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> len(ans_bin) &lt; <span class="number">40</span>:</span><br><span class="line">                ans_bin = ans_bin.rjust(<span class="number">40</span>,<span class="string">'0'</span>) </span><br><span class="line">        <span class="comment"># complement = FLOAT.T2C(res.sign + ans.bin)</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> ori_len == <span class="number">12</span>:</span><br><span class="line">            first1 = <span class="number">20</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">20</span>):</span><br><span class="line">                <span class="keyword">if</span> ans_bin[i] == <span class="string">'1'</span>:</span><br><span class="line">                    first1 = i</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> first1 &lt; <span class="number">8</span>:</span><br><span class="line">                res.exp = res.exp + <span class="number">8</span> - first1</span><br><span class="line">                <span class="comment"># Simulate the error cause by truancating the two's complement when the truncated part is not all zero</span></span><br><span class="line">                <span class="keyword">if</span> res.sign == <span class="string">'1'</span> <span class="keyword">and</span> first1 &lt; <span class="number">7</span> :</span><br><span class="line">                    ans_bin = bin(int(ans_bin,<span class="number">2</span>) + int(ans_bin[first1 + ori_len : ].rjust(<span class="number">20</span>,<span class="string">'0'</span>),<span class="number">2</span>))[<span class="number">2</span>:]</span><br><span class="line">                    <span class="keyword">if</span> len(ans_bin) &lt; <span class="number">20</span>:</span><br><span class="line">                        ans_bin = ans_bin.rjust(<span class="number">20</span>,<span class="string">'0'</span>)</span><br><span class="line">                    <span class="keyword">if</span> len(ans_bin) &gt; <span class="number">20</span>:</span><br><span class="line">                        ans_bin = ans_bin[<span class="number">0</span> : <span class="number">20</span>]</span><br><span class="line">                        res.exp += <span class="number">1</span></span><br><span class="line">                res.fra = ans_bin[first1 : first1 + ori_len]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res.fra = ans_bin[<span class="number">8</span> : ]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            first1 = <span class="number">40</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">40</span>):</span><br><span class="line">                <span class="keyword">if</span> ans_bin[i] == <span class="string">'1'</span>:</span><br><span class="line">                    first1 = i</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> first1 &lt; <span class="number">11</span>:</span><br><span class="line">                res.exp = res.exp + <span class="number">11</span> - first1</span><br><span class="line">                <span class="comment"># Simulate the error cause by truancating the two's complement when the truncated part is not all zero</span></span><br><span class="line">                <span class="keyword">if</span> res.sign == <span class="string">'1'</span> <span class="keyword">and</span> first1 &lt; <span class="number">10</span> :</span><br><span class="line">                    ans_bin = bin(int(ans_bin,<span class="number">2</span>) + int(ans_bin[first1 + ori_len : ].rjust(<span class="number">40</span>,<span class="string">'0'</span>),<span class="number">2</span>))[<span class="number">2</span>:]</span><br><span class="line">                    <span class="keyword">if</span> len(ans_bin) &lt; <span class="number">40</span>:</span><br><span class="line">                        ans_bin = ans_bin.rjust(<span class="number">40</span>,<span class="string">'0'</span>)</span><br><span class="line">                    <span class="keyword">if</span> len(ans_bin) &gt; <span class="number">40</span>:</span><br><span class="line">                        ans_bin = ans_bin[<span class="number">0</span> : <span class="number">40</span>]</span><br><span class="line">                        res.exp += <span class="number">1</span></span><br><span class="line">                res.fra = ans_bin[first1 : first1 + ori_len]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res.fra = ans_bin[<span class="number">11</span> : ]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -333,7 +252,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Notes</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Diary</a>
         		</li>
       		
 		</ul>
@@ -389,7 +308,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://kylincommander.github.io.git/2020/08/28/Useful-Vim/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kylincommander.github.io.git/2020/09/04/Summary-of-developing-Floating-point-ALU/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -403,18 +322,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/09/04/Summary-of-developing-Floating-point-ALU/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Summary of developing Floating-point ALU
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/23/Note-for-The-Missing-Semester-of-Your-CS-Education-2020-of-MIT/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Note for &#39;The Missing Semester of Your CS Education(2020)&#39; of MIT</div>
+    <a href="/2020/08/28/Useful-Vim/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Useful Vim</div>
       <i class="icon-circle-right"></i>
     </a>
   
