@@ -152,6 +152,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-How to Extend a Biased Form Number" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/20/How%20to%20Extend%20a%20Biased%20Form%20Number/">How to Extend a Biased Form Number</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/20/How%20to%20Extend%20a%20Biased%20Form%20Number/" class="archive-article-date">
+  	<time datetime="2020-10-20T10:40:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="0-Background"><a href="#0-Background" class="headerlink" title="0. Background"></a>0. Background</h2><p>​    The exponent part of the IEEE Floating-Point Representation is encoded in a biased form. During my design of the ALU for the floating point, I need to find a way to extend the biased form for one bit without change the actual value which it’s representing and make it easier to detect the overflow and underflow during the calculation.</p>
+<p>​    By the way, a $k$-bit biased number’s bias in this article is $ Bias = 2^{k - 1} - 1 $.</p>
+<h2 id="1-Conclusion-amp-Provement"><a href="#1-Conclusion-amp-Provement" class="headerlink" title="1. Conclusion &amp; Provement"></a>1. Conclusion &amp; Provement</h2><p>Suppose a $k$-bit biased numer and the actual value of its representation : $ X_kX_{k-1}…X_1 = \sum_{n=1}^{k}{X_n*2^{n-1}} - 2^{k-1} + 1$</p>
+<p>To extend it to a $ k+1$ -bit number and its actual value：$X_k\overline{X_k}X_{k-1}…X_1 = \sum_{n=1}^{k+1}{X_n*2^{n-1}} - 2^{k} + 1$</p>
+<p>Subtract their actual value and we got:<br>$$<br>\begin{align}<br>&amp;\sum_{n=1}^{k}{X_n<em>2^{n-1}} - 2^{k-1} + 1 - (\sum_{n=1}^{k+1}{X_n</em>2^{n-1}} - 2^{k} + 1)\<br>=&amp;(X_k<em>2^{k-1} - X_k</em>2^k) - \overline{X_k}<em>2^{k - 1} - 2^{k - 1} + 2^{k}\<br>=&amp;-X_k</em>2^{k-1}-\overline{X_k}*2^{k-1} + 2^{k-1}\<br>=&amp;2^{k - 1}(1-(X_k + \overline{X_k}))\<br>=&amp;2^{k - 1}(1-1)\<br>=&amp;0<br>\end{align}<br>$$</p>
+<h2 id="2-Generalization"><a href="#2-Generalization" class="headerlink" title="2.  Generalization"></a>2.  Generalization</h2><p>When it comes to extend more than one bit, just keep extending one bit at a time. </p>
+<p>For example:<br>$$<br>\begin{align}<br>Original(k\ bit):\qquad\qquad\qquad X_kX_{k-1}…X_1&amp;\<br>k+1\ bit:\qquad \qquad \ \ X_k\overline{X_k}X_{k-1}…X_1&amp;\<br>k+2\ bit:\qquad \quad \ X_k\overline{X_k}\overline{X_k}X_{k-1}…X_1&amp;\<br>k+3\ bit:\qquad X_k\overline{X_k}\overline{X_k}\overline{X_k}X_{k-1}…X_1&amp;\<br>……<br>\end{align}<br>$$</p>
+<h2 id="3-Shrink-a-biased-form-number"><a href="#3-Shrink-a-biased-form-number" class="headerlink" title="3. Shrink a biased form number"></a>3. Shrink a biased form number</h2><p>Consider the simplest case: shrink $ X_kX_{k-1}…X_1$ to $k-1$ bit.</p>
+<p>If $X_kX_{k-1}$ can be represented as $X_{k-1}\overline{X_{k-1}}$ then it can be shrunk to one less bit without changing the actual value.</p>
+<p>If $X_kX_{k-1}$ equals 11, the this $k-bit$ biased form number is bigger than the maximum which $k-1$ bit can represent.</p>
+<p>If $X_kX_{k-1}$ equals 00, the this $k-bit$ biased form number is less than the minimum which $k-1$ bit can represent. </p>
+<p>The complexer cases then is easy to generalize and understand.</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Notes</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/20/How%20to%20Extend%20a%20Biased%20Form%20Number/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Summary-of-developing-Floating-point-ALU" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1097,11 +1182,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Diary</a>
+                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
+                <a href="javascript:void(0)" class="js-tag color1">Diary</a>
               </li>
             
             <div class="clearfix"></div>
